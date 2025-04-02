@@ -1,0 +1,258 @@
+:root {
+    --white: #ffffff;
+    --black: #000000; 
+    --blue: #0052CC;
+    --dark-blue: #012e72;
+    --light-blue: #0a4874;
+    --light-gray: #1E293B;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    /* smoother when click link */
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* 10px */
+ }
+
+.box-stroke { /*stroke cho nav*/
+    background-color: white;
+    border-bottom: 2px solid #E5E7EB; 
+    width: 100%;
+}
+
+/* nav */
+/* Start CSS navigation */
+#navigation {
+    /* height: 5.5rem; */
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 70px;
+}
+#navigation .nav-left .logo-nav-left {
+    display: flex; 
+    align-items: center;
+    list-style: none;
+}
+#navigation .nav-right .nav-header-ul {
+    display: flex; 
+    align-items: center;
+    list-style: none;
+    gap: 2rem; 
+}
+#navigation .nav-left .logo {
+    width: 10rem;
+}
+#navigation .nav-left .logo2 {
+    padding: calc(3px - 0.35px) 0px;
+}
+#navigation .nav-right .nav-header-ul .nav-li a {
+    text-decoration: none;
+    color: var(--light-gray);
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 10px;
+}
+#navigation .nav-right .nav-header-ul .nav-li a:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+/* End CSS navigation */
+
+/* slider */
+/* Start CSS slider */
+#slider {
+    position: relative;
+    overflow: hidden; /*Ẩn phần ngoài khung*/
+    margin-top: 7rem; /* do bi nav voi fixed đè lên nên cần như này*/
+    /* padding-top: 15%; */
+    /* Tương đương 55% chiều cao của viewport (cửa sổ trình duyệt) */
+    height: 55vh; 
+    /* background: url('../images/slide/5g.png') top center / cover no-repeat; */
+}
+#slider .slides {
+    /* position: relative; */
+    /* top: 70%; */
+    display: flex;
+    color: var(--black);
+    transition: transform 0.5s ease-in-out; /* chuyen canh sieu muot */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Bóng đổ đen mạnh hơn */
+}
+/* start slide text*/
+#slider .slide-text {
+    position: relative;
+    background-color: var(--light-gray);
+    color: var(--white);
+    width: 100%;
+    height: auto;
+    /* flex-shrink: 0; giúp giữ kích thước của slide và đảm bảo chúng không bị biến mất => width = 100% day 2 cai sau bi tran khi do overflow se hidden di */
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#slider .slides .slide-heading {
+    line-height: 72px;
+    font-size: 4.8rem;
+}
+#slider .slides .slide-content {
+    text-align: center;
+    line-height: 27px;
+    font-size: 1.8rem;
+    max-width: 600px;
+    margin: 15px 0px;
+}
+/* end slide text*/
+
+/* start slide img*/
+#slider .slide-img {
+    width: 100%;
+    flex-shrink: 0; /*ngan bi co lai*/
+}
+
+#slider .slide-img img{
+    width: 100%;
+    height: auto;
+}
+/* end slide img*/
+
+/* start btn-start */
+#slider .slides .btn-start {
+    font-size: 1.3rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--blue);
+    transition: all 0.3s ease-in-out; /* Hiệu ứng mượt */
+}
+#slider .slides .btn-start:hover {
+    background-color: var(--dark-blue);
+    transform: scale(1.05);
+}
+#slider .slides .btn-start:active {
+    transform: scale(0.8); 
+}
+/* end btn-start */
+
+/* start btn nav */
+#slider .buttons-nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%); /* can giua theo y */
+}
+#slider .buttons-nav button{
+    color: var(--white);
+    padding: 10px;
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0); /* Trong suốt */
+}
+#slider .buttons-nav button:hover{
+    transform: scale(1.1);
+}
+/* end btn nav*/
+/* End CSS slider */
+
+/* my-service */
+/* Start CSS my-service */
+#my-service {
+    margin-top: 30px;
+}
+
+#my-service .my-service-heading { 
+    margin-left: 50px;
+    font-size: 20px;
+    color: var(--light-blue);
+}
+
+#my-service .my-service-contents {
+    margin-top: 20px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#my-service .container-service-content {
+    margin: 0px 30px;
+    width: calc(100%/3);
+    height: 200px;
+    border-radius: 5px;
+    background-color: var(--white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ */
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#my-service .container-service-content:hover {
+    transform: scale(1.1);
+}
+
+#my-service .service-content {
+    /* background-color: #0052CC; */
+    width: 240px;
+    height: auto;
+}
+
+#my-service .my-service-contents .service-content-solution-icon{ 
+    padding: 8px;
+    color: var(--white);
+    background-color: var(--blue);
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+#my-service .my-service-contents .service-content-heading {
+    padding: 15px 0px 0px;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+#my-service .my-service-contents .service-content-about {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+}
+
+/* End CSS my-service */
+
+/* Start CSS my-product */
+#my-product {
+    margin-top: 30px;
+}
+
+#my-product .my-product-header {
+    margin-left: 50px;
+    font-size: 30px;
+    line-height: 30px;
+    color: var(--light-blue);
+}
+
+/* End CSS my-product */
