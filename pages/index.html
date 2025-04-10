@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fansipan Tecnologies</title>
+    <!-- start CSS -->
+    <link rel="stylesheet" href="./assets/css/helper.css">
+    <link rel="stylesheet" href="./assets/css/layout.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <!-- ./ de bieu thi assets nam cung folder voi index.html -->
+    <!-- end CSS -->
+    <link rel="stylesheet" href="./assets/font/themify-icons-font/themify-icons/themify-icons.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- header-nav -->
+        <div id="nav-placeholder"></div>
+
+        <main id="content">
+            <!-- Start slider introduction -->
+            <section id="slider">
+                <div class="slides">
+                    <div class="slide-text">
+                        <h1 class="slide-heading">Định Hình Tương Lai Kết Nối</h1>
+                        <p class="slide-content">Cung cấp giải pháp 5G tiên tiến, dịch vụ internet chất lượng cao và
+                            phát triển firmware chuyên nghiệp</p>
+                        <button class="btn-start"
+                            onclick="document.getElementById('why-us').scrollIntoView({ behavior: 'smooth' })">Bắt Đầu
+                            Ngay</button>
+                    </div>
+                    <div class="slide-img">
+                        <a href="https://5g.mobifone.vn/" target="_blank">
+                            <img src="./assets/images/slide/5g.png" alt="5g sieu nhanh">
+                        </a>
+                    </div>
+                    <div class="slide-img">
+                        <a href="https://5g.mobifone.vn/" target="_blank">
+                            <img src="./assets/images/slide/cuoc5g.jpg" alt="5g sieu nhanh">
+                        </a>
+                    </div>
+                </div>
+                <div class="buttons-nav">
+                    <button onclick="prevSlide()">❮</button>
+                    <button onclick="nextSlide()">❯</button>
+                </div>
+            </section>
+            <!-- End slider introduction -->
+
+            <!-- Start why us -->
+            <section id="why-us">
+                <div class="why-us-heading">
+                    <h1 class="title-general">VẤN ĐỀ VỚI DỊCH VỤ VIỄN THÔNG TẠI VIỆT NAM</h1>
+                    <p class="content-general">Dịch vụ viễn thông tại Việt Nam hiện vẫn còn nhiều hạn chế: giá cước chưa
+                        hợp lý, tốc độ mạng thiếu ổn định, và chất lượng chăm sóc khách hàng còn thấp. Điều này khiến
+                        nhiều người dùng - cả cá nhân lẫn doanh nghiệp - cảm thấy chưa hài lòng. Với mong muốn thay đổi
+                        thực trạng này, Fansipan ra đời với sứ mệnh mang đến giải pháp Internet và dịch vụ điện thoại
+                        tốc độ cao, đáng tin cậy và tiết kiệm cho người Việt. Chúng tôi thấu hiểu rằng người dùng Việt
+                        Nam đang gặp phải rất nhiều khó khăn trong quá trình sử dụng dịch vụ kết nối, điển hình như:
+                    </p>
+                </div>
+                <div class="why-us-contents">
+                    <img class="content-img"
+                        src="https://www.hdtelecom.ca/wp-content/uploads/2017/11/HD-telecom-telecomnication2.jpg"
+                        alt="fansipan telecom">
+                    <div class="content-text">
+                        <h3 class="content-text-heading">1. Trả tiền quá nhiều cho dịch vụ Internet:</h3>
+                        <p class="content-text-about">Bạn có biết rằng tốc độ cao chưa chắc đã là lựa chọn tốt nhất?
+                            Nhiều người dùng có thói quen đăng ký các gói Internet tốc độ cao vượt xa nhu cầu thực tế,
+                            dẫn đến lãng phí chi phí hàng tháng. Thực tế, 76% khách hàng của chúng tôi trước khi chuyển
+                            sang Fansipan đều rơi vào tình trạng này. Tại Fansipan, chúng tôi chủ động đo lường mức sử
+                            dụng thực tế của bạn, từ đó đề xuất gói cước phù hợp nhất với nhu cầu, giúp bạn tiết kiệm
+                            tối đa chi phí mà vẫn đảm bảo hiệu quả kết nối.</p>
+                        <h3 class="content-text-heading">2. Trả quá nhiều tiền cho dịch vụ điện thoại:</h3>
+                        <p class="content-text-about">Dịch vụ điện thoại cố định và di động tại nhiều khu vực vẫn đang
+                            có chi phí cao một cách không cần thiết, đặc biệt khi phải thực hiện nhiều cuộc gọi liên
+                            tỉnh hoặc gọi đi xa. Nhiều nhà mạng tận dụng điều này để áp dụng mức phí cao, gây ra gánh
+                            nặng tài chính - nhất là với doanh nghiệp sử dụng nhiều số điện thoại. Fansipan giải quyết
+                            vấn đề này bằng dịch vụ điện thoại công nghệ cao, tích hợp đầy đủ các tính năng cần thiết
+                            với chi phí chỉ bằng một phần nhỏ so với thông thường. Bạn cũng có thể tùy chọn thêm các
+                            tính năng nâng cao mà không phát sinh thêm chi phí. Đã có tới 43% khách hàng của chúng tôi
+                            từng bị "hút máu" bởi mô hình tính phí theo từng tính năng trước khi chuyển sang Fansipan.
+                            Giờ thì họ không còn phải lo lắng về hóa đơn mỗi tháng nữa.</p>
+                        <h3 class="content-text-heading">3. Kết nối kém, mạng không ổn định:</h3>
+                        <p class="content-text-about">Dù hạ tầng viễn thông ngày càng hiện đại, tình trạng mạng chập
+                            chờn, Wi-Fi yếu vẫn diễn ra phổ biến tại Việt Nam. Không ít người dùng phải “sống chung” với
+                            Wi-Fi không thể phủ sóng hết cả căn nhà, gây bất tiện trong học tập, làm việc và giải trí.
+                            Nguyên nhân chủ yếu thường đến từ cách thiết kế mạng không hợp lý và thiết bị kém chất
+                            lượng. Thực tế, 63% khách hàng của chúng tôi từng gặp phải vấn đề này trước khi chuyển sang
+                            Fansipan. Tại Fansipan, chúng tôi tin rằng người dùng xứng đáng được trải nghiệm một hệ
+                            thống mạng được thiết kế đúng chuẩn, ổn định từ trong ra ngoài — không chấp nhận sự "chắp
+                            vá" hay "tạm bợ".</p>
+                    </div>
+                </div>
+            </section>
+            <!-- End why us -->
+
+            <!-- Start my service -->
+            <section id="my-service">
+                <div class="my-service-heading">
+                    <h1 class="service-heading">Dịch Vụ Của Chúng Tôi</h1>
+                </div>
+                <div class="my-service-contents">
+                    <div class="container-service-content">
+                        <div class="service-content">
+                            <!-- <a href=""></a> -->
+                            <i class="ti-announcement service-content-icon"></i>
+                            <h3 class="service-content-heading">Giải Pháp Mạng 5G</h3>
+                            <p class="service-content-about">Triển khai và tối ưu hóa mạng 5G cấp doanh nghiệp với hiệu
+                                suất và độ tin cậy tối đa.</p>
+                            <p class="service-content-details">Chi tiết</p>
+                        </div>
+                    </div>
+                    <div class="container-service-content">
+                        <div class="service-content">
+                            <!-- <a href=""></a> -->
+                            <i class="ti-world service-content-icon"></i>
+                            <h3 class="service-content-heading">Dịch Vụ Internet</h3>
+                            <p class="service-content-about">Giải pháp internet tốc độ cao với thời gian hoạt động được
+                                đảm bảo và hỗ trợ chuyên nghiệp.</p>
+                            <p class="service-content-details">Chi tiết</p>
+                        </div>
+                    </div>
+                    <div class="container-service-content">
+                        <div class="service-content">
+                            <!-- <a href=""></a> -->
+                            <i class="ti-rss-alt service-content-icon"></i>
+                            <h3 class="service-content-heading">Dịch Vụ IPTV</h3>
+                            <p class="service-content-about">Gói IPTV giá rẻ với nhiều tùy chọn kênh, đảm bảo chất lượng
+                                cao và kết nối ổn định.</p>
+                            <p class="service-content-details">Chi tiết</p>
+                        </div>
+                    </div>
+                    <div class="container-service-content">
+                        <div class="service-content">
+                            <!-- <a href=""></a>  -->
+                            <i class="ti-cloud service-content-icon"></i>
+                            <h3 class="service-content-heading">Điện Thoại Đám Mây</h3>
+                            <p class="service-content-about">Giải pháp thay thế PSTN với chất lượng cao, linh hoạt và
+                                tiết kiệm chi phí.</p>
+                            <p class="service-content-details">Chi tiết</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End my service -->
+
+            <!-- Start my product -->
+            <!-- <section id="my-product">
+            <h1 class="my-product-header"><i class="ti-shopping-cart"></i>SẢN PHẨM CỦA CHÚNG TÔI</h1>
+        </section> -->
+            <!-- End my product -->
+
+            <!-- Start contact -->
+            <section id="contact">
+                <div class="contact-container">
+                    <h1 class="contact-heading">Sẵn Sàng Nâng Cấp Kết Nối?</h1>
+                    <p class="contact-content">Liên hệ với đội ngũ của chúng tôi để thảo luận về cách chúng tôi có thể
+                        tối ưu hóa cơ sở hạ tầng mạng của bạn.</p>
+                    <a href="https://www.facebook.com/" target="_blank" class="btn-contact">Liên Hệ Ngay</a>
+                </div>
+            </section>
+            <!-- End contact -->
+        </main>
+        <!-- footer -->
+        <div id="footer-placeholder"></div>
+    </div>
+    <!-- Start Javascript -->
+    <script src="./assets/js/sliderIntroduction.js"></script>
+    <script src="../js/layout-loader.js"></script>
+    <script src="./assets/js/loadModulePage.js"></script>
+    <!-- End Javascript -->
+</body>
+
+</html>
