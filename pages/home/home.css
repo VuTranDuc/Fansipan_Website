@@ -159,14 +159,14 @@ html{
 }
 
 #why-us .why-us-heading .content-general {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     font-style: bold;
     text-align: left;
 }
 
 #why-us .why-us-contents {
-    padding: 28px 0px;
+    padding: 0px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;

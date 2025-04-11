@@ -1,4 +1,4 @@
-// === load component ===
+// === Load Component ===
 function loadComponent(id, path) {
   fetch(path)
     .then(res => {
@@ -17,7 +17,7 @@ function loadComponent(id, path) {
 loadComponent("nav-placeholder", "components/nav.html");
 loadComponent("footer-placeholder", "components/footer.html");
 
-// === load page ===
+// === Load Page ===
 function loadPage() {
   const hash = window.location.hash || "#home";
   const page = hash.replace("#", "");
@@ -40,23 +40,20 @@ function loadPage() {
     });
 }
 
-// Load corresponding CSS file
-function loadPageCSS(cssPath) {
-  console.log("Loading CSS from:", cssPath);
-
+// === Load CSS (one per page) ===
+function loadPageCSS(cssPathParam) {
+  // console.log(cssPath1);
   const oldCss = document.getElementById("page-style");
   if (oldCss) oldCss.remove();
 
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = cssPath; // dùng luôn đường dẫn đã truyền
+  link.href = cssPathParam;
   link.id = "page-style";
 
   document.head.appendChild(link);
 }
 
-// Events
+// === Events ===
 window.addEventListener("hashchange", loadPage);
 window.addEventListener("DOMContentLoaded", loadPage);
-
-
