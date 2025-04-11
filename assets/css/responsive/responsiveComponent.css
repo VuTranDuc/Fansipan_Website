@@ -1,0 +1,64 @@
+/* PC >= 1024px */
+@media screen and (min-width: 1024px) {
+
+}
+
+/* Tablet: 768px <= width <= 1023px */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    #navigation {
+        padding: 10px 20px;
+    }
+    #navigation .nav-right .nav-header-ul .nav-li > a {
+        font-size: 1.5rem;
+        padding: 4px;
+    }
+
+    #main-footer .footer-inc, #main-footer .footer-content {
+        margin-left: 50px;
+        margin-top: 50px;
+        width: calc(100% / 4 - 20px);
+    }
+
+    #main-footer {
+        height: auto;
+    }
+
+    #main-footer .footer-content .heading {
+        font-size: 2.5rem;
+    }
+
+    #main-footer .footer-content .content {
+        font-size: 2.0rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+/* Mobile: width < 768px */
+@media screen and (max-width: 767px) {
+    #navigation {
+        padding: 10px 20px;
+    }
+
+    #navigation .nav-right .nav-header-ul .nav-li > a {
+        font-size: 1.5rem;
+        padding: 4px;
+    }
+
+    #main-footer .footer-inc, #main-footer .footer-content {
+        margin-left: 50px;
+        margin-top: 50px;
+        width: calc(100% / 4 - 20px);
+    }
+
+    #main-footer {
+        height: auto;
+    }
+
+    #main-footer .footer-content .heading {
+        font-size: 27px;
+    }
+
+    #main-footer .footer-content .content {
+        font-size: 22px;
+    }
+}
