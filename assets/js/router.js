@@ -1,5 +1,6 @@
 // Load NAV and FOOTER
 loadComponent("nav-placeholder", "components/nav.html");
+loadComponent("contact-placeholder", "components/contact.html");
 loadComponent("footer-placeholder", "components/footer.html");
 
 // === Load Component ===

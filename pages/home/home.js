@@ -1,5 +1,5 @@
 let index = 0;
-    const slides = document.querySelector(".slides");
+const slides = document.querySelector(".slides");
 
 function showSlide(i) {
     index = (i + 3) % 3; /* index luon trong khoang 0-2 */
