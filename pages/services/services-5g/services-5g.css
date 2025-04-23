@@ -35,19 +35,30 @@ html{
     padding: 20px 0px;
 }
 
-#nav-service h2 {
+/* #nav-service h2 {
+    font-size: 1.8rem; 
+    color: var(--blue);
+    font-weight: bold;
+    margin-right: 5px;
+    line-height: 20px;
+} */
+
+#nav-service .nav-service-content {
     font-size: 1.8rem; /* 18px */
     color: var(--blue);
     font-weight: bold;
     margin-right: 5px;
     line-height: 20px;
+    margin-bottom: -4px;
 }
 
 #nav-service h2 a{  
+    padding: 0px 8px;
+    font-size: 1.8rem; /* 18px */
     color: var(--dark-blue);
 }
 
-#nav-service .ti-angle-right {
+#nav-service .right-angle {
     color: var(--gray);
     font-weight: bold;
 }

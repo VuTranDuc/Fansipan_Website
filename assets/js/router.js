@@ -1,3 +1,7 @@
+// Load NAV and FOOTER
+loadComponent("nav-placeholder", "components/nav.html");
+loadComponent("footer-placeholder", "components/footer.html");
+
 // === Load Component ===
 function loadComponent(id, path) {
   fetch(path)
@@ -13,16 +17,26 @@ function loadComponent(id, path) {
     });
 }
 
-// Load NAV and FOOTER
-loadComponent("nav-placeholder", "components/nav.html");
-loadComponent("footer-placeholder", "components/footer.html");
-
 // === Load Page ===
 function loadPage() {
+
   const hash = window.location.hash || "#home";
   const page = hash.replace("#", "");
-  const htmlPath = `./pages/${page}/${page}.html`;
-  const cssPath = `./pages/${page}/${page}.css`;
+
+  let folder = page;
+
+  let htmlPath = `./pages/${folder}/${page}.html`;
+  let cssPath = `./pages/${folder}/${page}.css`;
+  let jsPath = `./pages/${folder}/${page}.js`;
+
+  if (page.startsWith("services-")) {
+    folder = "services";
+    htmlPath = `./pages/${folder}/${page}/${page}.html`;
+    cssPath = `./pages/${folder}/${page}/${page}.css`;
+    jsPath = `./pages/${folder}/${page}/${page}.js`;
+  }
+
+  // console.log({ htmlPath, cssPath, jsPath });
 
   // Load HTML content
   fetch(htmlPath)
@@ -33,6 +47,7 @@ function loadPage() {
     .then(data => {
       document.getElementById("main-content").innerHTML = data;
       loadPageCSS(cssPath);
+      loadPageJS(jsPath);
     })
     .catch(err => {
       document.getElementById("main-content").innerHTML = "<h2>404 - Page not found</h2>";
@@ -42,7 +57,6 @@ function loadPage() {
 
 // === Load CSS (one per page) ===
 function loadPageCSS(cssPathParam) {
-  // console.log(cssPath1);
   const oldCss = document.getElementById("page-style");
   if (oldCss) oldCss.remove();
 
@@ -53,6 +67,19 @@ function loadPageCSS(cssPathParam) {
 
   document.head.appendChild(link);
 }
+
+// === Load JS (one per page) ===
+function loadPageJS(jsPathParam) {
+  const oldScript = document.getElementById("page-script");
+  if (oldScript) oldScript.remove();
+
+  const script = document.createElement("script");
+  script.src = jsPathParam;
+  script.id = "page-script";
+
+  document.body.appendChild(script);
+}
+
 
 // === Events ===
 window.addEventListener("hashchange", loadPage);
