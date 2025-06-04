@@ -1,43 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fansipan Tecnologies</title>
-    <!-- start CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <!-- ./ de hieu thi assets nam cung folder voi index.html -->
-    <!-- end CSS -->
+    <title>Fansipan Technologies</title>
+    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/font/themify-icons-font/themify-icons/themify-icons.css">
 </head>
-
 <body>
-    <div id="wrapper">
-        <!-- header-nav -->
-        <div id="nav-placeholder"></div>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="top-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/img/logo/logo fansipan.png" alt="Logo Công ty">
+                    </a>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <button><i class="ti-search"></i></button>
+                </div>
+                <div class="language-select">
+                    <select>
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li class="active"><a href="index.html">Trang chủ</a></li>
+                    <li><a href="services.html">Dịch vụ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li><a href="news.html">Tin tức</a></li>
+                    <!-- <li><a href="partners.html">Đối tác</a></li> -->
+                    <li><a href="careers.html">Tuyển dụng</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-        <!-- main -->
-        <main id="main-content">
-            <!-- home.html hoặc services.html sẽ được fetch vào đây -->
-        </main>
+    <!-- Main Content -->
+    <main id="content">
+        <!-- Banner Section -->
+        <section class="banner">
+            <div class="container-1">
+                <div class="slider">
+                    <img src="assets/banner/5g.png" alt="Banner">
+                    <div class="slider-content">
+                        <h2>Giải pháp công nghệ toàn diện</h2>
+                        <p>Đối tác tin cậy cho sự phát triển bền vững của doanh nghiệp</p>
+                        <a href="contact.html" class="btn">Liên hệ ngay</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- contact -->
-        <!-- <div id="contact-placeholder"></div> -->
+        <!-- Highlights Section -->
+        <section class="highlights">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Dịch vụ nổi bật</h2>
+                </div>
+                <div class="highlight-items">
+                    <div class="highlight-item">
+                        <div class="icon">
+                            <i class="ti-server"></i>
+                        </div>
+                        <h3>Hạ tầng CNTT</h3>
+                        <p>Giải pháp hạ tầng CNTT toàn diện cho doanh nghiệp</p>
+                        <a href="services.html#infrastructure" class="read-more">Xem thêm</a>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">
+                            <i class="ti-shield"></i>
+                        </div>
+                        <h3>An toàn thông tin</h3>
+                        <p>Bảo vệ dữ liệu và hệ thống của doanh nghiệp</p>
+                        <a href="services.html#security" class="read-more">Xem thêm</a>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="icon">
+                            <i class="ti-cloud"></i>
+                        </div>
+                        <h3>Điện toán đám mây</h3>
+                        <p>Giải pháp đám mây linh hoạt và hiệu quả</p>
+                        <a href="services.html#cloud" class="read-more">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Products Section -->
+        <section class="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Sản phẩm chính</h2>
+                </div>
+                <div class="product-items">
+                    <div class="product-item">
+                        <img src="" alt="Monitor">
+                        <h3>Màn hình chuyên dụng</h3>
+                        <p>Màn hình độ phân giải cao, phục vụ cho công việc chuyên nghiệp</p>
+                        <a href="products.html" class="btn">Chi tiết</a>
+                    </div>
+                    <div class="product-item">
+                        <img src="" alt="Access Point">
+                        <h3>Thiết bị AP</h3>
+                        <p>Thiết bị phát sóng wifi tốc độ cao cho doanh nghiệp</p>
+                        <a href="products.html" class="btn">Chi tiết</a>
+                    </div>
+                    <div class="product-item">
+                        <img src="" alt="Server">
+                        <h3>Máy chủ</h3>
+                        <p>Hệ thống máy chủ mạnh mẽ, hiệu suất cao</p>
+                        <a href="products.html" class="btn">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- footer -->
-        <div id="footer-placeholder"></div>
-    </div>
+        <!-- News Section -->
+        <section class="news">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Tin tức mới nhất</h2>
+                </div>
+                <div class="news-items">
+                    <div class="news-item">
+                        <img src="" alt="News Image">
+                        <div class="news-content">
+                            <h3>Ra mắt sản phẩm công nghệ mới</h3>
+                            <p class="date">15/04/2025</p>
+                            <p>Công ty chúng tôi vừa ra mắt dòng sản phẩm công nghệ mới nhất đáp ứng nhu cầu của doanh nghiệp.</p>
+                            <a href="news.html" class="read-more">Đọc tiếp</a>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <img src="" alt="News Image">
+                        <div class="news-content">
+                            <h3>Hợp tác chiến lược với đối tác quốc tế</h3>
+                            <p class="date">10/04/2025</p>
+                            <p>Chúng tôi vừa ký kết hợp tác chiến lược với đối tác quốc tế nhằm mở rộng thị trường.</p>
+                            <a href="news.html" class="read-more">Đọc tiếp</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <a href="news.html" class="btn">Xem tất cả tin tức</a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Start Javascript -->
-    <script src="./assets/js/router.js"></script>
-    <!-- <script src="pages/home/sliderIntroduction.js"></script> -->
-    <!-- End Javascript -->
+        <!-- Partners Section -->
+        <section class="partners">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Đối tác của chúng tôi</h2>
+                </div>
+                <div class="partner-items">
+                    <div class="partner-item">
+                        <img src="" alt="Mobile Phone Logo">
+                    </div>
+                    <div class="partner-item">
+                        <img src="" alt="Starlink Logo">
+                    </div>
+                    <div class="partner-item">
+                        <img src="" alt="Partner Logo">
+                    </div>
+                    <div class="partner-item">
+                        <img src="" alt="Partner Logo">
+                    </div>
+                    <div class="partner-item">
+                        <img src="" alt="Partner Logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <!-- Responsive -->
-    <link rel="stylesheet" href="assets/css/responsive/responsiveComponent.css">
-    <link rel="stylesheet" href="assets/css/responsive/responsiveHomePage.css">
+    <!-- Footer -->
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Về chúng tôi</h3>
+                    <p>Công ty Công nghệ hàng đầu cung cấp các giải pháp toàn diện về mạng cho doanh nghiệp vừa và nhỏ.</p>
+                    <div class="contact-info">
+                        <p><i class="ti-map-alt"></i> Ngách 10, Huỳnh Thúc Kháng, Hà Nội</p>
+                        <p><i class="ti-headphone-alt"></i> 0522882889</p>
+                        <p><i class="ti-envelope"></i> info@congty.com</p>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="services.html">Dịch vụ</a></li>
+                        <li><a href="products.html">Sản phẩm</a></li>
+                        <li><a href="news.html">Tin tức</a></li>
+                        <li><a href="careers.html">Tuyển dụng</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section social">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-twitter"></i></a>
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                        <a href="#"><i class="ti-youtube"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Đăng ký nhận tin</h4>
+                        <form>
+                            <input type="email" placeholder="Email của bạn">
+                            <button type="submit">Đăng ký</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>Copyright &copy; Fansipan Technologies</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
-
 </html>

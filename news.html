@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fansipan Technologies - Tin Tức</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+            color: white;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo::before {
+            content: "🏔️";
+            margin-right: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Duong-dan */
+        .duong-dan {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+        }
+
+        .duong-dan-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .duong-dan-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .duong-dan-list li:not(:last-child)::after {
+            content: "›";
+            margin-left: 0.5rem;
+            color: #666;
+        }
+
+        .duong-dan-list a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* News Page Styles */
+        .news-page {
+            display: block;
+        }
+
+        .article-page {
+            display: none;
+        }
+
+        .page-title {
+            color: #0066cc;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #0066cc;
+            margin: 0.5rem auto;
+        }
+
+        .news-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #0066cc;
+            background: transparent;
+            color: #0066cc;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-image::before {
+            content: "📰 ";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-category {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #0066cc;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .load-more {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .load-more-btn {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .load-more-btn:hover {
+            background-color: #0052a3;
+        }
+
+        /* Article Page Styles */
+        .article-header {
+            margin-bottom: 2rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #0066cc;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-image::before {
+            content: "🖼️";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .article-content h2 {
+            color: #0066cc;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .related-articles {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #eee;
+        }
+
+        .related-title {
+            color: #0066cc;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #f8f9fa;
+            color: #0066cc;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #e9ecef;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">Fansipan Technologies</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" onclick="showHomePage()">TRANG CHỦ</a></li>
+                    <li><a href="#">GIỚI THIỆU</a></li>
+                    <li><a href="#">DỊCH VỤ</a></li>
+                    <li><a href="#">SẢN PHẨM</a></li>
+                    <li><a href="#" onclick="showNewsPage()" class="active">TIN TỨC</a></li>
+                    <li><a href="#">TUYỂN DỤNG</a></li>
+                    <li><a href="#">LIÊN HỆ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- duong-dan -->
+    <div class="duong-dan">
+        <div class="duong-dan-container">
+            <ul class="duong-dan-list">
+                <li><a href="#" onclick="showHomePage()">Trang chủ</a></li>
+                <li id="current-duong-dan">Tin tức</li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <!-- News Page -->
+        <div id="news-page" class="news-page">
+            <h1 class="page-title">Tin tức mới nhất</h1>
+            
+            <div class="news-filters">
+                <button class="filter-btn active" onclick="filterNews('all')">Tất cả</button>
+                <button class="filter-btn" onclick="filterNews('tech')">Công nghệ</button>
+                <button class="filter-btn" onclick="filterNews('product')">Sản phẩm</button>
+                <button class="filter-btn" onclick="filterNews('cooperation')">Hợp tác</button>
+                <button class="filter-btn" onclick="filterNews('event')">Sự kiện</button>
+            </div>
+
+            <div class="news-grid" id="news-grid">
+                <!-- News Card 1 -->
+                <article class="news-card" onclick="showArticle(1)" data-category="tech">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-category">Công nghệ</span>
+                        <h3 class="news-title">Ra mắt sản phẩm công nghệ mới</h3>
+                        <p class="news-excerpt">Công ty chúng tôi vừa ra mắt dòng sản phẩm công nghệ mới nhất đáp ứng nhu cầu của doanh nghiệp hiện đại...</p>
+                        <div class="news-meta">
+                            <span>15/04/2025</span>
+                            <span>👁️ 1,234</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 2 -->
+                <article class="news-card" onclick="showArticle(2)" data-category="cooperation">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-category">Hợp tác</span>
+                        <h3 class="news-title">Hợp tác chiến lược với đối tác quốc tế</h3>
+                        <p class="news-excerpt">Chúng tôi vừa ký kết hợp tác chiến lược với đối tác quốc tế nhằm mở rộng thị trường và nâng cao năng lực...</p>
+                        <div class="news-meta">
+                            <span>10/04/2025</span>
+                            <span>👁️ 856</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 3 -->
+                <article class="news-card" onclick="showArticle(3)" data-category="event">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-category">Sự kiện</span>
+                        <h3 class="news-title">Tham gia Hội thảo Công nghệ 4.0</h3>
+                        <p class="news-excerpt">Đại diện công ty đã tham gia hội thảo về Công nghệ 4.0 và chia sẻ những kinh nghiệm thực tiễn...</p>
+                        <div class="news-meta">
+                            <span>08/04/2025</span>
+                            <span>👁️ 642</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 4 -->
+                <article class="news-card" onclick="showArticle(4)" data-category="product">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-category">Sản phẩm</span>
+                        <h3 class="news-title">Cập nhật tính năng mới cho phần mềm quản lý</h3>
+                        <p class="news-excerpt">Phiên bản mới của phần mềm quản lý doanh nghiệp đã được cập nhật với nhiều tính năng ưu việt...</p>
+                        <div class="news-meta">
+                            <span>05/04/2025</span>
+                            <span>👁️ 923</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 5 -->
+                <article class="news-card" onclick="showArticle(5)" data-category="tech">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-category">Công nghệ</span>
+                        <h3 class="news-title">Ứng dụng AI trong giải pháp doanh nghiệp</h3>
+                        <p class="news-excerpt">Chúng tôi đã tích hợp thành công công nghệ AI vào các giải pháp doanh nghiệp, mang lại hiệu quả cao...</p>
+                        <div class="news-meta">
+                            <span>02/04/2025</span>
+                            <span>👁️ 1,156</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 6 -->
+                <article class="news-card" onclick="showArticle(6)" data-category="cooperation">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-category">Hợp tác</span>
+                        <h3 class="news-title">Mở rộng mạng lưới đối tác trong nước</h3>
+                        <p class="news-excerpt">Công ty tiếp tục mở rộng mạng lưới đối tác chiến lược tại các tỉnh thành trên cả nước...</p>
+                        <div class="news-meta">
+                            <span>28/03/2025</span>
+                            <span>👁️ 734</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="load-more">
+                <button class="load-more-btn" onclick="loadMoreNews()">Xem thêm tin tức</button>
+            </div>
+        </div>
+
+        <!-- Article Page -->
+        <div id="article-page" class="article-page">
+            <a href="#" class="back-btn" onclick="showNewsPage()">
+                ← Quay lại danh sách tin tức
+            </a>
+
+            <article>
+                <header class="article-header">
+                    <span class="article-category" id="article-category">Công nghệ</span>
+                    <h1 class="article-title" id="article-title">Ra mắt sản phẩm công nghệ mới</h1>
+                    <div class="article-meta">
+                        <span>📅 <span id="article-date">15/04/2025</span></span>
+                        <span>👁️ <span id="article-views">1,234</span> lượt xem</span>
+                        <span>✍️ Fansipan Technologies</span>
+                    </div>
+                </header>
+
+                <div class="article-image"></div>
+
+                <div class="article-content" id="article-content">
+                    <p>Công ty Fansipan Technologies hân hạnh thông báo về việc ra mắt dòng sản phẩm công nghệ mới nhất, đánh dấu một bước tiến quan trọng trong hành trình phát triển và đổi mới của chúng tôi.</p>
+
+                    <h2>Tính năng nổi bật</h2>
+                    <p>Sản phẩm mới được trang bị những công nghệ tiên tiến nhất, được thiết kế để đáp ứng nhu cầu ngày càng cao của các doanh nghiệp hiện đại. Với giao diện thân thiện và tính năng tối ưu, sản phẩm hứa hẹn sẽ mang lại trải nghiệm tuyệt vời cho người dùng.</p>
+
+                    <h2>Lợi ích cho doanh nghiệp</h2>
+                    <p>Việc ứng dụng sản phẩm mới sẽ giúp các doanh nghiệp nâng cao hiệu quả làm việc, tối ưu hóa quy trình và giảm thiểu chi phí vận hành. Đây chính là mục tiêu mà Fansipan Technologies luôn hướng tới trong mọi sản phẩm của mình.</p>
+
+                    <p>Chúng tôi tin rằng sản phẩm mới sẽ góp phần quan trọng vào sự phát triển bền vững của các doanh nghiệp Việt Nam trong kỷ nguyên số.</p>
+                </div>
+            </article>
+
+            <section class="related-articles">
+                <h3 class="related-title">Bài viết liên quan</h3>
+                <div class="news-grid">
+                    <article class="news-card" onclick="showArticle(2)">
+                        <div class="news-image"></div>
+                        <div class="news-content">
+                            <span class="news-category">Hợp tác</span>
+                            <h3 class="news-title">Hợp tác chiến lược với đối tác quốc tế</h3>
+                            <p class="news-excerpt">Chúng tôi vừa ký kết hợp tác chiến lược với đối tác quốc tế...</p>
+                            <div class="news-meta">
+                                <span>10/04/2025</span>
+                                <span>👁️ 856</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" onclick="showArticle(5)">
+                        <div class="news-image"></div>
+                        <div class="news-content">
+                            <span class="news-category">Công nghệ</span>
+                            <h3 class="news-title">Ứng dụng AI trong giải pháp doanh nghiệp</h3>
+                            <p class="news-excerpt">Chúng tôi đã tích hợp thành công công nghệ AI...</p>
+                            <div class="news-meta">
+                                <span>02/04/2025</span>
+                                <span>👁️ 1,156</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Sample articles data
+        const articles = {
+            1: {
+                category: "Công nghệ",
+                title: "Ra mắt sản phẩm công nghệ mới",
+                date: "15/04/2025",
+                views: "1,234",
+                content: `
+                    <p>Công ty Fansipan Technologies hân hạnh thông báo về việc ra mắt dòng sản phẩm công nghệ mới nhất, đánh dấu một bước tiến quan trọng trong hành trình phát triển và đổi mới của chúng tôi.</p>
+
+                    <h2>Tính năng nổi bật</h2>
+                    <p>Sản phẩm mới được trang bị những công nghệ tiên tiến nhất, được thiết kế để đáp ứng nhu cầu ngày càng cao của các doanh nghiệp hiện đại. Với giao diện thân thiện và tính năng tối ưu, sản phẩm hứa hẹn sẽ mang lại trải nghiệm tuyệt vời cho người dùng.</p>
+
+                    <h2>Lợi ích cho doanh nghiệp</h2>
+                    <p>Việc ứng dụng sản phẩm mới sẽ giúp các doanh nghiệp nâng cao hiệu quả làm việc, tối ưu hóa quy trình và giảm thiểu chi phí vận hành. Đây chính là mục tiêu mà Fansipan Technologies luôn hướng tới trong mọi sản phẩm của mình.</p>
+
+                    <p>Chúng tôi tin rằng sản phẩm mới sẽ góp phần quan trọng vào sự phát triển bền vững của các doanh nghiệp Việt Nam trong kỷ nguyên số.</p>
+                `
+            },
+            2: {
+                category: "Hợp tác",
+                title: "Hợp tác chiến lược với đối tác quốc tế",
+                date: "10/04/2025",
+                views: "856",
+                content: `
+                    <p>Fansipan Technologies vừa ký kết thỏa thuận hợp tác chiến lược với đối tác quốc tế hàng đầu, mở ra cơ hội mới cho sự phát triển và mở rộng thị trường.</p>
+
+                    <h2>Nội dung hợp tác</h2>
+                    <p>Thỏa thuận hợp tác bao gồm việc chuyển giao công nghệ, phát triển sản phẩm chung và mở rộng thị trường xuất khẩu. Đây là bước tiến quan trọng giúp công ty tiếp cận những công nghệ tiên tiến nhất trên thế giới.</p>
+
+                    <h2>Lợi ích mang lại</h2>
+                    <p>Hợp tác này sẽ giúp Fansipan Technologies nâng cao năng lực cạnh tranh, mở rộng thị trường và tạo ra nhiều cơ hội việc làm chất lượng cao cho nguồn nhân lực Việt Nam.</p>
+                `
+            }
+        };
+
+        function showNewsPage() {
+            document.getElementById('news-page').style.display = 'block';
+            document.getElementById('article-page').style.display = 'none';
+            document.getElementById('current-duong-dan').textContent = 'Tin tức';
+            updateActiveNavLink('tin-tuc');
+        }
+
+        function showArticle(id) {
+            const article = articles[id];
+            if (!article) return;
+
+            document.getElementById('news-page').style.display = 'none';
+            document.getElementById('article-page').style.display = 'block';
+            
+            // Update duong-dan
+            document.getElementById('current-duong-dan').innerHTML = `<a href="#" onclick="showNewsPage()">Tin tức</a></li><li>${article.title}`;
+            
+            // Update article content
+            document.getElementById('article-category').textContent = article.category;
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-date').textContent = article.date;
+            document.getElementById('article-views').textContent = article.views;
+            document.getElementById('article-content').innerHTML = article.content;
+        }
+
+        function filterNews(category) {
+            const cards = document.querySelectorAll('.news-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function loadMoreNews() {
+            // Simulate loading more news
+            alert('Đang tải thêm tin tức...');
+        }
+
+        function updateActiveNavLink(page) {
+            const links = document.querySelectorAll('.nav-menu a');
+            links.forEach(link => link.classList.remove('active'));
+            // In a real implementation, you'd update based on the current page
+        }
+
+        function showHomePage() {
+            alert('Chuyển về trang chủ...');
+        }
+    </script>
+</body>
+</html>
